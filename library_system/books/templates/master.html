@@ -1,0 +1,145 @@
+<!-- books/templates/master.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Library System{% endblock %}</title>
+
+    <!-- Dark Theme CSS -->
+    <style>
+        /* Dark theme body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #bb86fc;
+            margin: 0 10px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            color: #ff79c6;
+        }
+
+        /* Content area */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Center button styling */
+        .center-btn {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #bb86fc;
+            color: #121212;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background-color: #ff79c6;
+            color: #121212;
+        }
+
+        /* Error styling */
+        .error {
+            color: #ff5555;
+            font-weight: bold;
+            background-color: #2b2b2b;
+            padding: 5px;
+            margin-top: 5px;
+            border-radius: 5px;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #1f1f1f;
+            color: #e0e0e0;
+            position: fixed;
+            width: 95%;
+            bottom: 0;
+        }
+
+        /* Book title styling */
+        .book-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #bb86fc;
+            text-decoration: none;
+        }
+
+        .book-title:hover {
+            color: #ff79c6;
+        }
+
+        /* Action links (Edit, Delete) styling */
+        .action-link {
+            font-size: 16px;
+            color: #bb86fc;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .action-link:hover {
+            color: #ff79c6;
+        }
+
+        /* List item styling */
+        li {
+            margin-bottom: 10px;
+            list-style-type: none;
+        }
+
+        /* Headings */
+        h1 {
+            color: #ff79c6;
+        }
+
+        p {
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>Kenji Library System</h2>
+        <a href="{% url 'book_list' %}">Home</a>
+        <a href="{% url 'book_create' %}">Add New Book</a>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kenji Library System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}Edit Book{% else %}Add New Book{% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>{% if form.instance.pk %}Edit Book{% else %}Add New Book{% endif %}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="error">{{ error }}</div>
+            {% endfor %}
+        {% endfor %}
+
+        <button type="submit" class="btn">Save</button>
+    </form>
+    <a href="{% url 'book_list' %}" class="btn">Cancel</a>
+{% endblock %}

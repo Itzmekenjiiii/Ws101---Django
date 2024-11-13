@@ -1,0 +1,24 @@
+{% extends 'master.html' %}
+
+{% block title %}
+    Book List
+{% endblock %}
+
+{% block content %}
+    <h1>Book List</h1>
+
+    <div class="center-btn">
+        <a href="{% url 'book_create' %}" class="btn">Add New Book</a>
+    </div>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <a href="{% url 'book_detail' book.pk %}" class="book-title">{{ book.title }}</a>
+                <a href="{% url 'book_update' book.pk %}" class="action-link">Edit</a>
+                <a href="{% url 'book_delete' book.pk %}" class="action-link">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
